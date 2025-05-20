@@ -1,0 +1,4 @@
+{
+    "originalCode": "console.log('my password is 12345');",
+    "sanitizedCode": "console.log('my password is ********');"
+}
