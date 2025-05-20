@@ -1,0 +1,7 @@
+### Test /api/generate endpoint
+POST http://localhost:8787/api/generate
+Content-Type: application/json
+
+{
+  "message": "console.log('my password is 12345');"
+}
