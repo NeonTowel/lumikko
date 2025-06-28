@@ -5,15 +5,14 @@ This is the backend API for the Lumikko project, built with [Hono](https://hono.
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+ recommended)
-- [Yarn](https://yarnpkg.com/) (v1.x)
-- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) (`yarn global add wrangler` or `npm install -g wrangler`)
+- [Bun](https://bun.sh/)
 
 ## Getting Started
 
 Install dependencies:
 
 ```bash
-yarn
+bun install
 ```
 
 ### Development
@@ -21,7 +20,7 @@ yarn
 Start the local development server:
 
 ```bash
-yarn dev
+bun run  dev
 ```
 
 This will run the Worker locally using Wrangler.
@@ -31,7 +30,7 @@ This will run the Worker locally using Wrangler.
 To deploy to Cloudflare Workers:
 
 ```bash
-yarn deploy
+bun run deploy
 ```
 
 ### Type Generation
@@ -39,7 +38,7 @@ yarn deploy
 To generate or synchronize types for your Worker bindings:
 
 ```bash
-yarn cf-typegen
+bun run cf-typegen
 ```
 
 ## API Endpoints
@@ -52,6 +51,7 @@ See `api/api-tests.http` for example requests.
 ## Environment Variables
 
 Set these in your Cloudflare Worker environment (see `wrangler.toml`):
+
 - `AZURE_OPENAI_ENDPOINT` — Azure OpenAI API endpoint
 - `AZURE_OPENAI_API_KEY` — Your Azure OpenAI API key
 - `CLOUDFLARE_AI_GATEWAY_API_KEY` — Cloudflare AI Gateway API key
@@ -80,6 +80,7 @@ npx wrangler secret put CLOUDFLARE_AI_GATEWAY_API_KEY
 - Made by [NeonTowel](https://github.com/NeonTowel) 🦄
 - Dedicated to the public domain ([Unlicense](https://unlicense.org/))
 - Powered by Private Azure OpenAI ⚡
+
 ---
 
 For more, see the [Hono documentation](https://hono.dev/) and [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/).
