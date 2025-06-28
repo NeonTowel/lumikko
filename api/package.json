@@ -3,8 +3,9 @@
 	"scripts": {
 		"dev": "wrangler dev",
 		"dev:remote": "wrangler dev --remote",
-		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"deploy": "wrangler --config wrangler.toml deploy --minify",
+    "deploy:dev": "wrangler --config wrangler-devel.toml deploy --minify"
 	},
 	"dependencies": {
 		"hono": "^4.7.8"
