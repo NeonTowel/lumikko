@@ -1,0 +1,6 @@
+# Environment variables for local development
+# Copy this file and adjust the values as needed
+
+# AZURE_OPENAI_ENDPOINT=azure-openai-endpoint
+# AZURE_OPENAI_API_KEY=azure-openai-api-key
+# CLOUDFLARE_AI_GATEWAY_API_KEY=cloudflare-ai-gateway-api-key

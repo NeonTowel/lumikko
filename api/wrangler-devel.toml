@@ -1,9 +1,9 @@
-name = "lumikko-api"
+name = "lumikko-api-devel"
 main = "src/index.ts"
 compatibility_date = "2025-05-25"
 workers_dev = false
 
-routes = [{ pattern = "api.lumikko.app/v1/*", zone_name = "lumikko.app" }]
+routes = [{ pattern = "api.lumikko.app/v2beta/*", zone_name = "lumikko.app" }]
 
 [observability.logs]
 enabled = false
