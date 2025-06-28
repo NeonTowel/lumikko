@@ -1,6 +1,0 @@
-name = "lumikko-ui"
-compatibility_date = "2025-04-30"
-pages_build_output_dir = ".svelte-kit/cloudflare"
-
-[observability]
-enabled = true

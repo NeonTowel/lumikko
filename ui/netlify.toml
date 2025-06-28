@@ -1,0 +1,23 @@
+[build]
+command = "bun run build"
+publish = "build"
+base = "ui"
+
+# Disable preview builds for pull requests and branch deploys
+[context.deploy-preview]
+command = "echo 'Deploy previews disabled' && exit 0"
+
+[context.branch-deploy]
+command = "echo 'Branch deploys disabled' && exit 0"
+
+[context.devel]
+command = "bun run build"
+
+# Custom domain configuration
+[[domains]]
+domain = "lumikko.app"
+
+# [[redirects]]
+# from = "/*"
+# to = "/index.html"
+# status = 200
