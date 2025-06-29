@@ -13,3 +13,7 @@ UI should go to /ui
 ## Node package manager
 
 Use bun, not npm or yarn.
+
+## Frontend
+
+UI is Svelte SPA
