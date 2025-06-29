@@ -17,7 +17,8 @@ async function createClient() {
 		clientId: config.clientId,
 		authorizationParams: {
 			redirect_uri: window.location.origin + '/callback',
-			scope: 'openid profile email offline_access'
+			scope: 'openid profile email offline_access',
+			audience: 'https://api.lumikko.app'
 		},
 		useRefreshTokens: true,
 		cacheLocation: 'localstorage'
@@ -55,7 +56,11 @@ export const auth = {
 	getAccessToken: async () => {
 		try {
 			const client = await getClient();
-			const token = await client.getTokenSilently();
+			const token = await client.getTokenSilently({
+				authorizationParams: {
+					audience: 'https://api.lumikko.app'
+				}
+			});
 			return token;
 		} catch (e) {
 			console.error('AuthService: Failed to get access token:', e);
@@ -85,7 +90,11 @@ export const auth = {
 			
 			// Verify we can get a token (this will confirm refresh token is working)
 			try {
-				await client.getTokenSilently();
+				await client.getTokenSilently({
+					authorizationParams: {
+						audience: 'https://api.lumikko.app'
+					}
+				});
 			} catch (tokenError) {
 				console.warn("AuthService: Could not get token after callback:", tokenError);
 			}
@@ -122,7 +131,11 @@ export const auth = {
 			
 			// User is not authenticated, try to get token silently (using refresh token)
 			try {
-				const token = await client.getTokenSilently();
+				const token = await client.getTokenSilently({
+					authorizationParams: {
+						audience: 'https://api.lumikko.app'
+					}
+				});
 				
 				// If we got a token, get the user
 				const u = await client.getUser();
