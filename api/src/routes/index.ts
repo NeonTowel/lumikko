@@ -1,7 +1,11 @@
 import { Hono } from "hono";
 import type { CloudflareBindings } from '../types';
+import { jwtAuth } from '../middleware/auth';
 
-const apiRoutes = new Hono<{ Bindings: CloudflareBindings }>();
+const apiRoutes = new Hono<{ Bindings: CloudflareBindings; Variables: { user: any } }>();
+
+// Apply JWT authentication middleware to all API routes
+apiRoutes.use('/api/*', jwtAuth);
 
 async function callAzureOpenAI(
   env: CloudflareBindings,

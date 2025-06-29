@@ -5,10 +5,11 @@
 		"dev:remote": "wrangler dev --remote",
 		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
 		"deploy": "wrangler --config wrangler.toml deploy --minify",
-    "deploy:dev": "wrangler --config wrangler-devel.toml deploy --minify"
+		"deploy:dev": "wrangler --config wrangler-devel.toml deploy --minify"
 	},
 	"dependencies": {
-		"hono": "^4.7.8"
+		"hono": "^4.7.8",
+		"jose": "^6.0.11"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250430.0",

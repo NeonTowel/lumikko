@@ -6,9 +6,10 @@ import { apiRoutes } from "./routes";
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
 app.use('*', cors({
-  origin: '*',
+  origin: ['https://lumikko.app', 'http://localhost:5173', 'http://localhost:4173'],
   allowMethods: ['POST', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 }));
 
 // Handle versioned routes by mounting the same routes at different paths

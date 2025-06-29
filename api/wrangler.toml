@@ -9,4 +9,5 @@ routes = [{ pattern = "api.lumikko.app/v1/*", zone_name = "lumikko.app" }]
 enabled = false
 
 [vars]
+AUTH0_DOMAIN = "neontowel.eu.auth0.com"
 AUTH0_AUDIENCE = "https://api.lumikko.app"
