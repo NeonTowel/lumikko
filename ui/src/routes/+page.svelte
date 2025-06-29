@@ -46,48 +46,46 @@
   }
 </script>
 
-<div class="min-h-screen flex flex-col bg-black text-white">
-  <div class="flex-1 flex items-center justify-center">
-    {#if !sanitizedCode}
-      <div
-        class="w-full max-w-2xl p-8 rounded-xl shadow-2xl bg-gray-800 bg-opacity-90 flex flex-col gap-6"
+{#if !sanitizedCode}
+  <div class="flex-1 flex items-center justify-center px-4">
+    <div
+      class="w-full max-w-2xl p-8 rounded-xl shadow-2xl bg-gray-800 bg-opacity-90 flex flex-col gap-6"
+    >
+      <h1
+        class="text-6xl font-extrabold text-purple-400 text-center drop-shadow-neon"
       >
-        <h1
-          class="text-6xl font-extrabold text-purple-400 text-center drop-shadow-neon"
-        >
-          Lumikko
-        </h1>
-        <p class="text-xl font-semibold text-gray-300 text-center mb-2">
-          Make your code more secure and avoid sensitive information.
-        </p>
-        <textarea
-          bind:value={code}
-          class="flex-1 w-full min-h-[16rem] max-h-[40vh] p-4 rounded-lg bg-gray-900 border-2 border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg font-mono resize-none placeholder-gray-500"
-          placeholder="Paste your code or script here..."
-        ></textarea>
-        <button
-          class="mt-4 w-full py-3 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-bold text-lg shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed"
-          on:click={sanitize}
-          disabled={loading || !code.trim()}
-        >
-          {loading ? "Improving..." : "Improve It!"}
-        </button>
-      </div>
-    {/if}
-  </div>
-
-  {#if error}
-    <div
-      class="w-full max-w-2xl mx-auto mt-8 p-4 rounded-lg bg-red-800 bg-opacity-80 text-red-200 text-center font-semibold"
-    >
-      {error}
+        Lumikko
+      </h1>
+      <p class="text-xl font-semibold text-gray-300 text-center mb-2">
+        Make your code more secure and avoid sensitive information.
+      </p>
+      <textarea
+        bind:value={code}
+        class="flex-1 w-full min-h-[16rem] max-h-[40vh] p-4 rounded-lg bg-gray-900 border-2 border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg font-mono resize-none placeholder-gray-500"
+        placeholder="Paste your code or script here..."
+      ></textarea>
+      <button
+        class="mt-4 w-full py-3 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-bold text-lg shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed"
+        on:click={sanitize}
+        disabled={loading || !code.trim()}
+      >
+        {loading ? "Improving..." : "Improve It!"}
+      </button>
     </div>
-  {/if}
+  </div>
+{/if}
 
-  {#if sanitizedCode}
-    <div
-      class="w-full min-h-screen bg-gray-800 bg-opacity-90 flex flex-col gap-4"
-    >
+{#if error}
+  <div
+    class="w-full max-w-2xl mx-auto mt-8 p-4 rounded-lg bg-red-800 bg-opacity-80 text-red-200 text-center font-semibold"
+  >
+    {error}
+  </div>
+{/if}
+
+{#if sanitizedCode}
+  <div class="flex-1 flex flex-col">
+    <div class="w-full bg-gray-800 bg-opacity-90 flex flex-col gap-4 flex-1">
       <div class="pt-12 pb-2">
         <h1
           class="text-6xl font-extrabold text-purple-400 text-center drop-shadow-neon mb-2"
@@ -111,6 +109,7 @@
         </div>
       </div>
     </div>
+
     <div
       class="w-full flex flex-col items-center justify-center pt-8 sm:pt-12 lg:pt-16"
     >
@@ -140,27 +139,8 @@
         Return
       </button>
     </div>
-  {/if}
-
-  <footer class="w-full text-center mb-4 text-sm text-gray-500">
-    <span
-      >Made by
-      <a
-        href="https://github.com/NeonTowel"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="underline hover:text-purple-400 transition-colors"
-      >
-        NeonTowel</a
-      >
-      🦄 &nbsp;|&nbsp; Dedicated to the public domain (<a
-        href="https://unlicense.org/"
-        target="_blank"
-        class="underline hover:text-purple-400">Unlicense</a
-      >) &nbsp;|&nbsp; Powered by Private Azure OpenAI ⚡
-    </span>
-  </footer>
-</div>
+  </div>
+{/if}
 
 <style>
   /* Optional: Neon drop shadow for header */
